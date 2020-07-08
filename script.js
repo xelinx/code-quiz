@@ -4,7 +4,7 @@ document.querySelector("#prompt").addEventListener("click", quiz);
 //Variables
 var quizContainer = document.getElementById('quiz');
 var resultsContainter = document.getElementById('results');
-var submitButton
+var submitButton = document.querySelector
 
 //Questions
 var questions = [{
@@ -33,8 +33,24 @@ var questions = [{
     correctAnswer: 1
 };
 
+//Start Quiz
+function startQuiz (){
+    timer();
 
+}
 
+//Countdown Timer
+var sec = 60;
+function timer (){
+    var timer = setInterval (quiz) {
+        sec--;
+        document.getElementById("timer").innerHTML= "" + seconds;
+        if sec (0) {
+            clearInterval(timer);
+            alert("Game over")
+        }   
+    }, 1000);
+}
 
 //Quiz function
 function quiz () {
@@ -42,19 +58,8 @@ function quiz () {
 
     questions.forEach()
 
-    //Countdown Timer
-    var sec = 60;
-    function timer (){
-        var timer = setInterval (quiz) {
-            sec--;
-            document.getElementById("timer").innerHTML= "" + seconds;
-            if sec (0) {
-                clearInterval(timer);
-                alert("Game over")
-            }   
-        }, 1000);
-    }
-    if a
+    
+
 
 };
 
