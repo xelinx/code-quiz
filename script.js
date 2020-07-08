@@ -25,3 +25,5 @@ var questions = [{
     question: "5. What is 10 + 2 * 5?",
     choices: ["60", "20", "12", "0"],
     correctAnswer: 1
+};
+
