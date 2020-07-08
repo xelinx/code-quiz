@@ -1,6 +1,12 @@
 //Prompt first question on click
 document.querySelector("#prompt").addEventListener("click", quiz);
 
+//Variables
+var quizContainer = document.getElementById('quiz');
+var resultsContainter = document.getElementById('results');
+var submitButton
+
+//Questions
 var questions = [{
     question: "1. What does HTML stand for?",
     choices: ["HyperTextual Machine Learning", "How To Mechanic Language", "Hyper Tag Machine Language", "HyperText Markup Language"],
@@ -27,3 +33,32 @@ var questions = [{
     correctAnswer: 1
 };
 
+
+
+
+//Quiz function
+function quiz () {
+    var answer = [];
+
+    questions.forEach()
+
+    //Countdown Timer
+    var sec = 60;
+    function timer (){
+        var timer = setInterval (quiz) {
+            sec--;
+            document.getElementById("timer").innerHTML= "" + seconds;
+            if sec (0) {
+                clearInterval(timer);
+                alert("Game over")
+            }   
+        }, 1000);
+    }
+    if a
+
+};
+
+//Quiz Results
+function results () {
+
+};

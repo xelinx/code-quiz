@@ -15,12 +15,6 @@ body {
     align-items: center;
 }
 
-  /*Password Box*/
-.box {
-    padding: 15px;
-    align-items: center;
-}
-
   /*Button*/
 .start {
     background-color: mediumpurple;

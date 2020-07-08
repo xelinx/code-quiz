@@ -1,5 +1,8 @@
 # code-quiz
 
+Creating a time based quiz with multiple choice questions that deducts time when the wrong answer is selected using HTML, CSS, and Javascript. Only when the correct answer is selected will the user be able to move on to the next question. At the end, the user is prompted to enter their initials to record their score.
+
+
 
 ## Screenshots of the Deployed Website
 
