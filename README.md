@@ -26,5 +26,6 @@ HTML Semantic Elements https://www.w3schools.com/html/html5_semantic_elements.as
 
 Special Character https://www.owasp.org/index.php/Password_special_characters
 
+jQuery API https://api.jquery.com/
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
