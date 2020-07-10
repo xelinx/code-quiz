@@ -1,5 +1,5 @@
 //Prompt first question on click
-document.querySelector("#prompt").addEventListener("click", quiz);
+document.querySelector("#prompt").addEventListener("click", startQuiz);
 
 //Variables
 var quizContainer = document.getElementById('quiz');
@@ -35,17 +35,17 @@ var questions = [{
 
 //Start Quiz
 function startQuiz (){
-    timer();
-
+    timerStart();
+    quiz ();
 }
 
 //Countdown Timer
-var sec = 60;
-function timer (){
+var sec = (60);
+function timerStart (){
     var timer = setInterval (quiz) {
         sec--;
-        document.getElementById("timer").innerHTML= "" + seconds;
-        if sec (0) {
+        document.getElementById("timer").innerHTML= "Time: " + sec;
+        if sec 0) {
             clearInterval(timer);
             alert("Game over")
         }   
@@ -54,9 +54,14 @@ function timer (){
 
 //Quiz function
 function quiz () {
-    var answer = [];
+    var result = [];
 
-    questions.forEach()
+    questions.forEach(
+        (currentQuestion, questionNumber) {
+            var answers = [];
+
+        }
+    )
 
     
 
