@@ -31,7 +31,7 @@ var questions = [{
     question: "5. What is 10 + 2 * 5?",
     choices: ["60", "20", "12", "0"],
     correctAnswer: 1
-};
+}}];
 
 //Start Quiz
 function startQuiz (){
@@ -40,14 +40,14 @@ function startQuiz (){
 }
 
 //Countdown Timer
-var sec = (60);
+
 function timerStart (){
     var timer = setInterval (quiz) {
-        sec--;
+        sec --;
         document.getElementById("timer").innerHTML= "Time: " + sec;
-        if sec 0) {
+        if (sec === 0) {
             clearInterval(timer);
-            alert("Game over")
+            alert("Game over");
         }   
     }, 1000);
 }
@@ -57,7 +57,7 @@ function quiz () {
     var result = [];
 
     questions.forEach(
-        (currentQuestion, questionNumber) {
+        (currentQuestion, questionNumber) =>{
             var answers = [];
 
         }
