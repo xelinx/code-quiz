@@ -4,7 +4,7 @@ document.querySelector("#prompt").addEventListener("click", startQuiz);
 //Variables
 var quizContainer = document.getElementById('quiz');
 var resultsContainter = document.getElementById('results');
-var submitButton = document.querySelector
+var submitButton = document.querySelector;
 
 //Questions
 var questions = [{
@@ -31,7 +31,7 @@ var questions = [{
     question: "5. What is 10 + 2 * 5?",
     choices: ["60", "20", "12", "0"],
     correctAnswer: 1
-}}];
+}];
 
 //Start Quiz
 function startQuiz (){
