@@ -30,3 +30,11 @@ body {
     font-size: 20x;
 }
 
+.button {
+  background-color: mediumpurple;
+  color: white;
+  text-align: center;
+  padding: 15px 30px; 
+  font-size: 20x;
+}
+

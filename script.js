@@ -1,74 +1,120 @@
-//Prompt first question on click
-document.querySelector("#prompt").addEventListener("click", startQuiz);
-
 //Variables
-var quizContainer = document.getElementById('quiz');
-var resultsContainter = document.getElementById('results');
-var submitButton = document.querySelector;
+var startBtn = document.getElementById("prompt");
+var submitBtn = document.getElementById("submitBtn")
+var sec = (questions.length * 12 + 1);
+var timerEl = document.getElementById("timer");
+var submitScoreEl = document.querySelector("#submit-score");
+var userScoreEl = document.getElementById("user-score");
+var userName;
+var questionHead = document.getElementById("questions");
+var answerChoices = document.getElementById("answers");
 
-//Questions
-var questions = [{
-    question: "1. What does HTML stand for?",
-    choices: ["HyperTextual Machine Learning", "How To Mechanic Language", "Hyper Tag Machine Language", "HyperText Markup Language"],
-    correctAnswer: 3
-}, 
-{
-    question: "2. How do you display an alert?",
-    choices: ["msg('Beep')", "msgBox('Beep');", "alertBox('Beep');", "alert('Beep');"],
-    correctAnswer: 3
-}, 
-{
-    question: "3. What is the keyboard shortcut to comment a line in HTML?",
-    choices: ["SHIFT+CMD+K", "CMD+K+U", "CMD+OPTION+K", "CMD+K+I"],
-    correctAnswer: 1
-}, 
-{
-    question: "4. What will this print? var a = [1, 2, 3]; console.log(a[6]);",
-    choices: ["undefined", "0", "prints nothing", "Syntax error"],
-    correctAnswer: 0
-}, 
-{
-    question: "5. What is 10 + 2 * 5?",
-    choices: ["60", "20", "12", "0"],
-    correctAnswer: 1
-}];
+var questionNumber = -1;
+var answer;
 
 //Start Quiz
 function startQuiz (){
+    // unhide questions
+    document.getElementById("home").classList.add('d-none');
+    document.getElementById("quiz").classList.remove('d-none');
+
+    // timer starts
     timerStart();
+
+    // questions
     quiz ();
 }
 
-//Countdown Timer
-
+// Timer
 function timerStart (){
-    var timer = setInterval (quiz) {
+    var timer = setInterval (function () {
         sec --;
-        document.getElementById("timer").innerHTML= "Time: " + sec;
-        if (sec === 0) {
+
+        timerEl.textContent = "Time: " + sec;
+
+        if (sec === 0 || questionNumber === questions.length) {
             clearInterval(timer);
-            alert("Game over");
+            setTimeout(displayScore, 500);
         }   
     }, 1000);
 }
 
 //Quiz function
 function quiz () {
-    var result = [];
+    questionNumber++;
+    answer = questions[questionNumber].correctAnswer
 
-    questions.forEach(
-        (currentQuestion, questionNumber) =>{
-            var answers = [];
+    questionHead.textContent = questions[questionNumber].question;
+    answerChoices.innerHTML = "";
 
-        }
-    )
+    var choices = questions[questionNumber].choices;
 
-    
+    for (var q = 0; q < choices.length; q++) {
+        var nextChoice = document.createElement("button");
 
-
+        nextChoice.textContent = choices[q]
+        answerBtn = answerChoices.appendChild(nextChoice).setAttribute("class", "p-3 m-1 btn button btn-block");
+    }
 };
 
 //Quiz Results
 function results () {
+    userName = document.getElementById("userName").value
+    
+    // create a new object with name and score keys
+var newScore = {
+        name: userName,
+        score: sec
+    };
+    // get local storage
+    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+    // push object to score array
+    highScores.push(newScore)
+    // turn objects into string array then put it into local storage
+    localStorage.setItem("highScores", JSON.stringify(highScores));
 
-};
+}
+
+// record score
+function displayScore() {
+    document.getElementById("quiz").classList.add('d-none');
+    document.getElementById("submit-score").classList.remove('d-none');
+    userScoreEl.textContent = "Your score is " + sec + ".";
+}
+
+// Event listeners for buttons
+startBtn.addEventListener("click", startQuiz);
+submitBtn.addEventListener("click", function (event) {
+    event.stopPropagation();
+    results();
+    
+    window.location.href = './highscores.html'
+});
+
+
+function hideFeedback(){
+    var pEl= document.getElementsByClassName("feedback")[0]
+    pEl.style.display='none'
+}
+
+function showFeedback(){
+    var pEl= document.getElementsByClassName("feedback")[0]
+    pEl.removeAttribute('style');
+}
+
+answerChoices.addEventListener("click", function (event) {
+    var pEl= document.getElementsByClassName("feedback")[0]
+    
+    // Right or wrong answer
+    if (answer === event.target.textContent) {   
+        pEl.innerHTML = "Correct";
+        setTimeout(hideFeedback,1000);
+        showFeedback();   
+    } else {
+        pEl.innerHTML = "Wrong";
+        setTimeout(hideFeedback,1000);
+        sec = sec - 5;
+        showFeedback();
+    }    
+    quiz();
+});
